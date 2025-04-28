@@ -1,0 +1,62 @@
+package remedial.mains;
+
+import remedial.shapes.Kerucut;
+import remedial.shapes.Balok;
+import remedial.bases.BangunRuang;
+import java.util.Scanner;
+
+public class KalkulatorBangunRuangMini {
+    public static void main(String[] args) {
+        final String RED = "\u001B[31m";
+        final String GREEN = "\u001B[32m";
+        final String RESET = "\u001B[0m";
+
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println(GREEN + "=============================================");
+        System.out.println("Kalkulator Bangun Ruang Mini Versi A");
+        System.out.println("Elfareta Zabrina Dewi");
+        System.out.println("245150701111015");
+        System.out.println("=============================================" + RESET);
+
+        BangunRuang kerucutDefault = new Kerucut();
+        System.out.println(RED + "Kerucut Default" + RESET);
+        kerucutDefault.printInfo();
+
+        System.out.println(GREEN + "Kerucut" + RESET);
+        System.out.println("=============================================");
+        System.out.print("Isikan nama     : ");
+        String namaKerucut = scanner.nextLine();
+        System.out.print("Isikan radius   : ");
+        double radius = scanner.nextDouble();
+        System.out.print("Isikan tinggi   : ");
+        double tinggi = scanner.nextDouble();
+        System.out.print("Isikan massa    : ");
+        double massaKerucut = scanner.nextDouble();
+        BangunRuang kerucutInput = new Kerucut(namaKerucut, radius, tinggi, massaKerucut);
+        kerucutInput.printInfo();
+
+        scanner.nextLine(); // bersihkan buffer
+
+        BangunRuang balokDefault = new Balok();
+        System.out.println(RED + "Balok Default" + RESET);
+        balokDefault.printInfo();
+
+        System.out.println(GREEN + "Balok" + RESET);
+        System.out.println("=============================================");
+        System.out.print("Isikan nama     : ");
+        String namaBalok = scanner.nextLine();
+        System.out.print("Isikan panjang  : ");
+        double panjang = scanner.nextDouble();
+        System.out.print("Isikan lebar    : ");
+        double lebar = scanner.nextDouble();
+        System.out.print("Isikan tinggi   : ");
+        double tinggiBalok = scanner.nextDouble();
+        System.out.print("Isikan massa    : ");
+        double massaBalok = scanner.nextDouble();
+        BangunRuang balokInput = new Balok(namaBalok, panjang, lebar, tinggiBalok, massaBalok);
+        balokInput.printInfo();
+
+        scanner.close();
+    }
+}
