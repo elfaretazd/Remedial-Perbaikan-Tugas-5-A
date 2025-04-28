@@ -1,0 +1,49 @@
+package remedial.shapes;
+
+import remedial.bases.BangunRuang;
+import remedial.interfaces.HitungRuang;
+
+public class Kerucut extends BangunRuang implements HitungRuang {
+    private double radius;
+    private double tinggi;
+    private static final double PI = 22.0 / 7.0;
+
+    public Kerucut() {
+        super("Default Kerucut", 0);
+        this.radius = 0;
+        this.tinggi = 0;
+    }
+
+    public Kerucut(String nama, double radius, double tinggi, double massa) {
+        super(nama, massa);
+        this.radius = radius;
+        this.tinggi = tinggi;
+    }
+
+    public double garisPelukis() {
+        return Math.sqrt(radius * radius + tinggi * tinggi);
+    }
+
+    @Override
+    public double hitungVolume() {
+        return (PI * radius * radius * tinggi) / 3;
+    }
+
+    @Override
+    public double hitungBerat() {
+        return massa * 10;
+    }
+
+    @Override
+    public void printInfo() {
+        System.out.println("=============================================");
+        System.out.println("Nama            : " + nama);
+        System.out.println("Radius          : " + radius);
+        System.out.println("Tinggi          : " + tinggi);
+        System.out.println("Massa           : " + massa);
+        System.out.println("Volume          : " + hitungVolume());
+        System.out.println("Berat           : " + hitungBerat());
+        System.out.println("Garis pelukis   : " + garisPelukis());
+        System.out.println("=============================================");
+    }
+}
