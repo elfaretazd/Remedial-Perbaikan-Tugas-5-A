@@ -1,0 +1,47 @@
+package remedial.shapes;
+
+import remedial.bases.BangunRuang;
+import remedial.interfaces.HitungRuang;
+
+public class Balok extends BangunRuang implements HitungRuang {
+    private double panjang;
+    private double lebar;
+    private double tinggi;
+
+    public Balok() {
+        super("Default Balok", 0);
+        this.panjang = 0;
+        this.lebar = 0;
+        this.tinggi = 0;
+    }
+
+    public Balok(String nama, double panjang, double lebar, double tinggi, double massa) {
+        super(nama, massa);
+        this.panjang = panjang;
+        this.lebar = lebar;
+        this.tinggi = tinggi;
+    }
+
+    @Override
+    public double hitungVolume() {
+        return panjang * lebar * tinggi;
+    }
+
+    @Override
+    public double hitungBerat() {
+        return massa * 10;
+    }
+
+    @Override
+    public void printInfo() {
+        System.out.println("=============================================");
+        System.out.println("Nama            : " + nama);
+        System.out.println("Panjang         : " + panjang);
+        System.out.println("Lebar           : " + lebar);
+        System.out.println("Tinggi          : " + tinggi);
+        System.out.println("Massa           : " + massa);
+        System.out.println("Volume          : " + hitungVolume());
+        System.out.println("Berat           : " + hitungBerat());
+        System.out.println("=============================================");
+    }
+}
