@@ -2,44 +2,59 @@
 
 ---
 
-### 📌 1. Interface `HitungRuang`
-- **Interface** ini berfungsi untuk mengatur bahwa semua bangun ruang wajib memiliki kemampuan menghitung **volume** dan **berat**.
-- Terdapat dua method wajib: `hitungVolume()` dan `hitungBerat()`.
-- Dengan interface ini, baik `Kerucut` maupun `Balok` dipaksa untuk mengimplementasikan cara menghitung volume dan berat masing-masing.
+Praktikum ini bertujuan untuk membuat kalkulator sederhana yang dapat menghitung volume dan berat dua jenis bangun ruang, **Kerucut** dan **Balok**. Program ini mengimplementasikan konsep **Object-Oriented Programming (OOP)** seperti **polymorphism**, **inheritance**, dan **interface** di Java.
 
 ---
 
-### 📌 2. Abstract Class `BangunRuang`
-- `BangunRuang` adalah **abstract class** yang menjadi dasar bagi semua bentuk bangun ruang.
-- Class ini memiliki **atribut** `nama` dan `massa` yang digunakan di semua bentuk.
-- Selain itu, `BangunRuang` memiliki **method abstract** `printInfo()`, yang berarti setiap class anak seperti `Kerucut` dan `Balok` harus menyediakan implementasinya sendiri.
+### **Deskripsi Program**
+Program memungkinkan pengguna untuk memilih antara menghitung volume dan berat **Kerucut** atau **Balok**. Konsep **polymorphism** diterapkan untuk memungkinkan objek-objek ini diperlakukan sebagai **BangunRuang** yang umum. Output juga dilengkapi dengan warna menggunakan **ANSI escape codes**.
 
 ---
 
-### 📌 3. Class `Kerucut`
-- `Kerucut` adalah class **turunan** dari `BangunRuang` dan **mengimplementasikan** interface `HitungRuang`.
-- Memiliki atribut **private** `radius` dan `tinggi`, serta konstanta `PI` sebesar 22/7.
-- Disediakan **dua konstruktor**: default (`radius`, `tinggi` = 0) dan overload (mengisi semua data lewat input).
-- `Kerucut` menghitung volume dengan rumus `(π × r² × t)/3`, berat dengan rumus `massa × 10`, serta garis pelukis menggunakan `√(r² + t²)`.
-- Semua data objek dicetak menggunakan method `printInfo()`.
+### **Struktur Program**
+- **`HitungRuang` (Interface)**: Mendeklarasikan metode **hitungVolume()** dan **hitungBerat()**.
+- **`BangunRuang` (Abstract Class)**: Menyimpan atribut **nama** dan **massa**, serta deklarasi metode **printInfo()**.
+- **`Kerucut` dan `Balok` (Subclass)**: Mengimplementasikan **HitungRuang** untuk perhitungan volume dan berat.
+- **`KalkulatorBangunRuangMini` (Main Program)**: Menyediakan menu untuk interaksi pengguna dengan pilihan bangun ruang dan perhitungan.
 
 ---
 
-### 📌 4. Class `Balok`
-- `Balok` juga merupakan **turunan** dari `BangunRuang` dan **mengimplementasikan** interface `HitungRuang`.
-- Memiliki atribut **private** yaitu `panjang`, `lebar`, dan `tinggi`.
-- Disediakan **dua konstruktor**: default (semua data 0) dan overload (input user).
-- Volume balok dihitung dengan `panjang × lebar × tinggi`, dan berat = `massa × 10`.
-- Informasi lengkap balok dicetak melalui method `printInfo()`.
+### **Polymorphism**
+Polymorphism diterapkan di **`main()`** dengan deklarasi objek **Kerucut** dan **Balok** sebagai tipe **BangunRuang**, sehingga dapat menggunakan metode **printInfo()** meskipun implementasinya berbeda di masing-masing kelas.
 
 ---
 
-### 📌 5. Main Class `KalkulatorBangunRuangMini`
-- Class ini hanya berisi satu method yaitu `public static void main(String[] args)`.
-- Di dalam `main()`, pertama dicetak **header** program dengan pewarnaan hijau.
-- Dilakukan **pembuatan objek default** untuk `Kerucut` dan `Balok` menggunakan **polymorphism**, di mana tipe datanya adalah `BangunRuang` tapi objeknya adalah `Kerucut` atau `Balok`.
-- Program menerima **input** dari user untuk membuat objek `Kerucut` dan `Balok` baru berdasarkan nilai yang dimasukkan.
-- Setelah input, objek dicetak menggunakan method `printInfo()` yang otomatis menghitung volume, berat, dan garis pelukis (khusus untuk kerucut).
-- Semua **pewarnaan output** (hijau, merah) hanya diatur di dalam `main()`, tidak di class lain, menggunakan **ANSI escape codes**.
+### **Input dan Output**
+Pengguna memasukkan data untuk menghitung volume dan berat bangun ruang. Program menampilkan hasil perhitungan dan informasi tambahan seperti garis pelukis untuk **Kerucut**. Output disertai pewarnaan untuk meningkatkan keterbacaan.
 
 ---
+
+### **Implementasi OOP**
+- **Abstraction**: Proses perhitungan volume dan berat disembunyikan dalam kelas masing-masing bangun ruang.
+- **Encapsulation**: Atribut seperti **radius**, **tinggi**, **panjang**, dan **massa** dijaga agar bersifat **private**.
+- **Inheritance**: **Kerucut** dan **Balok** mewarisi kelas **BangunRuang** untuk berbagi metode umum.
+- **Polymorphism**: Program menggunakan **BangunRuang** untuk objek yang berbeda, sehingga memungkinkan pemanggilan metode yang sama meskipun objeknya berbeda.
+
+---
+
+### **Pengujian Program**
+Contoh input:
+```
+Nama Kerucut    : Kerucut
+Radius          : 7
+Tinggi          : 14
+Massa           : 5
+```
+Output:
+```
+Nama            : Kerucut
+Volume          : 539.33
+Berat           : 50.0
+Garis pelukis   : 14.28
+```
+
+---
+
+### **Kesimpulan**
+Program berhasil menerapkan **OOP** dengan baik. **Polymorphism** memungkinkan penggunaan objek berbeda melalui tipe yang sama. Program berjalan sesuai ekspektasi dengan output yang terformat baik dan interaktif.
+
