@@ -1,0 +1,13 @@
+package remedial.bases;
+
+public abstract class BangunRuang {
+    protected String nama;
+    protected double massa;
+
+    public BangunRuang(String nama, double massa) {
+        this.nama = nama;
+        this.massa = massa;
+    }
+
+    public abstract void printInfo();
+}
