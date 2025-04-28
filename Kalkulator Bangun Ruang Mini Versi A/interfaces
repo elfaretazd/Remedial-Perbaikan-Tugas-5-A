@@ -1,0 +1,6 @@
+package remedial.interfaces;
+
+public interface HitungRuang {
+    double hitungVolume();
+    double hitungBerat();
+}
